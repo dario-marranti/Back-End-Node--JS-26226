@@ -1,0 +1,17 @@
+{
+  "name": "talento-tech-pre-entrega",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node --watch index.js"
+  },
+  "type": "module",
+  "author": "Dario Marranti",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^5.2.1",
+    "nodemon": "^3.1.14"
+  }
+}
