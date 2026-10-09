@@ -22,9 +22,20 @@ if(method === 'GET') {
         console.log(data); 
     }
 } else if(method === 'POST') {
-    console.log(`Creating new ${resource} with data:`, args.join(" "));
-
+    const response = await fetch(`${BASE_URL}/${resource}`);
+    if (!response.ok) {
+       throw new Error(`Error HTTP: ${response.status}`);
+    }
+    const [title, price, category] = args;
+    console.log('Creating new product:');
+    console.log(`Title: ${title}`);
+    console.log(`Price: $${Number(price).toLocaleString('es-AR')}`);
+    console.log(`Category: ${category}`);
 } else if(method === 'DELETE') {
+    const response = await fetch(`${BASE_URL}/${resource}/${id}`) ;
+    if (!response.ok) {
+        throw new Error(`Error HTTP: ${response.status}`);
+    }
     console.log(`Deleting ${resource} with ID: ${id}...`);
 }else{
     console.error("Invalid method ${method}");
